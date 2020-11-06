@@ -10,6 +10,9 @@ choice
 	prompt "glibc version"
 	default BR2_GLIBC_VERSION_2_23
 
+config BR2_GLIBC_VERSION_2_21
+	bool "2.21"
+
 config BR2_GLIBC_VERSION_2_22
 	bool "2.22"
 	# Too old to build with gcc >= 6.x
@@ -33,6 +36,7 @@ endif
 
 config BR2_GLIBC_VERSION_STRING
 	string
+    default "2.21" if BR2_GLIBC_VERSION_2_21
 	default "2.22" if BR2_GLIBC_VERSION_2_22
 	default "2.23" if BR2_GLIBC_VERSION_2_23
 	default "2.24" if BR2_GLIBC_VERSION_2_24
